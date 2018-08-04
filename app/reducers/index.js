@@ -1,11 +1,15 @@
 // @flow
 import { combineReducers } from 'redux';
-import { routerReducer as router } from 'react-router-redux';
-import counter from './counter';
+import types from './types';
+import environments from './environments';
+import document from './document';
+import brands from './brands';
 
 const rootReducer = combineReducers({
-  counter,
-  router
+  types,
+  environments,
+  document,
+  brands,
 });
 
 export default rootReducer;

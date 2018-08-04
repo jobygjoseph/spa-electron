@@ -1,0 +1,106 @@
+{  
+    "types":[  
+      {  
+        "label":"Article-Article-Plus",
+        "value":"news_entry"
+      },
+      {  
+        "label":"Card",
+        "value":"data_card"
+      },
+      {  
+        "label":"Curated-List-Content Package",
+        "value":"curated_list"
+      },
+      {  
+        "label":"Pinned-Reference-Front Management",
+        "value":"pinned_reference"
+      },
+      {  
+        "label":"Recipe",
+        "value":"recipe"
+      },
+      {  
+        "label":"Slideshow",
+        "value":"slideshow"
+      },
+      {  
+        "label":"Taxonomy",
+        "value":"taxonomy_term"
+      },
+      {  
+        "label":"Widget",
+        "value":"custom_widget"
+      },
+      {  
+        "label":"Video",
+        "value":"mavis"
+      }
+    ],
+    "environments":[  
+      {  
+        "label":"Working-copy",
+        "value":"https://msgviewer.nbcnewstools.net/msgsaver"
+      },
+      {  
+        "label":"SYS02-CMS-UAT-API",
+        "value":"https://uat.msgviewer.nbcnewstools.net"
+      },
+      {  
+        "label":"SYS06-CMS-INT-API",
+        "value":"https://int.msgviewer.nbcnewstools.net"
+      },
+      {  
+        "label":"PROD-CMS-PROD-CMS",
+        "value":"https://int.msgviewer.nbcnewstoolss.net"
+      }
+    ],
+    "document":{  
+      "loading":false,
+      "loaded":false,
+      "error":false,
+      "message":null,
+      "splunk":null,
+      "url":null,
+      "headline": null,
+      "pal": null,
+      "updates":null,
+      "contentGuid":null,
+      "contentId":null,
+      "drupal":null,
+      "contentPublisher":null,
+      "totalUpdates":null,
+      "rawMessages":null,
+      "date_created":null,
+      "date_published":null,
+      "date_updated":null,
+      "contentApi":null,
+      "contentScm": null,
+      "halBrowser": null,
+      "resCodes": {
+        "apiCode": 0,
+        "scmCode": 0,
+        "halCode": 0,
+        "palCode": 0
+      },
+      "coverImage": ""
+    },
+    "brands":[  
+      {  
+        "label":"Today News",
+        "value":"today"
+      },
+      {  
+        "label":"NBC NEWS",
+        "value":"nbcnews"
+      },
+      {  
+        "label":"Prod-MPX",
+        "value":"mpx"
+      },
+      {  
+        "label":"MSNBC NEWS",
+        "value":"https://int.msgviewer.nbcnewstools.net"
+      }
+    ]
+  }
