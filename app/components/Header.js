@@ -1,7 +1,3 @@
-/**
- * Created by ImranAnsari on 6/13/17.
- */
-
 import React, { Component } from 'react';
 // import logo from '../logo.svg';
 import '../css/App.css';

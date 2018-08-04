@@ -1,13 +1,9 @@
-/**
- * Created by ImranAnsari on 5/12/17.
- */
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DOCUMENT_FETCH_LOADING, DOCUMENT_FETCH_SUCCESS, DOCUMENT_FETCH_ERROR } from '../reducers/document';
 
 
-@connect(store => store)
+//@connect(store => store)
 export default class Form extends Component {
   constructor() {
     super();

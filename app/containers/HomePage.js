@@ -3,9 +3,39 @@ import { connect } from 'react-redux';
 import Home from '../components/Home';
 import * as allActions from '../actions';
 
-function mapStateToProps(state) {
+function mapStateToProps({ document, environments, types, brands }) {
+  const { loading, loaded, error, splunk, url, headline, pal, contentGuid, contentId, publisher, total, totalUpdates, rawMessages, contentPublisher,
+    date_created, date_published, date_updated, drupal, contentApi, contentScm, halBrowser, resCodes, coverImage } = document;
+  console.log('---------------------- types: ', types);
+  consol.log('========================== brands', brands);
   return {
-    counter: state.counter
+    loading,
+    loaded,
+    error,
+    splunk,
+    url,
+    headline,
+    pal,
+    contentGuid,
+    contentId,
+    publisher,
+    total,
+    totalUpdates,
+    rawMessages,
+    contentPublisher,
+    date_created,
+    date_published,
+    date_updated,
+    environments,
+    isLoading: loading,
+    types,
+    brands,
+    drupal,
+    contentApi,
+    contentScm,
+    halBrowser,
+    resCodes,
+    coverImage,
   };
 }
 

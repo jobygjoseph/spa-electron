@@ -10,12 +10,13 @@ import Header from './Header';
 import Row from './Row';
 import FatterRow from './FatterRow';
 
-class App extends Component {
+
+export default class App extends Component {
   render() {
         // DO NOT GRAB DISPATCH
     const {
       splunk, url, headline, pal, error, contentGuid, contentId, contentPublisher, totalUpdates,
-      rawMessages, date_created, date_published, date_updated, environments, types, brands,
+      rawMessages, date_created, date_published, date_updated, environments=[], types=[], brands=[],
       dispatch, isLoading, contentApi, contentScm, halBrowser, loaded, drupal, resCodes,
       coverImage,
     } = this.props;
@@ -31,6 +32,9 @@ class App extends Component {
           { linkText: 'View the Content Warehouse Standard Content Model representation as stored in our MongoDB', linkHref: contentScm, status: resCodes.scmCode },
 
     ];
+    console.log('###############################', environments);
+    console.log('###############################2', types);
+    console.log('###############################3', brands);
     return (
       <div className="row">
         <Header />
@@ -98,36 +102,3 @@ class App extends Component {
     );
   }
 }
-
-export default connect(
-    ({ document, environments, types, brands }) => ({
-      loading: document.loading,
-      loaded: document.loaded,
-      error: document.error,
-      splunk: document.splunk,
-      url: document.url,
-      headline: document.headline,
-      pal: document.pal,
-      contentGuid: document.contentGuid,
-      contentId: document.contentId,
-      publisher: document.publisher,
-      total: document.total,
-      totalUpdates: document.totalUpdates,
-      rawMessages: document.rawMessages,
-      contentPublisher: document.contentPublisher,
-      date_created: document.date_created,
-      date_published: document.date_published,
-      date_updated: document.date_updated,
-      environments: environments.data,
-      isLoading: document.loading,
-      types: types.data,
-      brands: brands.data,
-      drupal: document.drupal,
-      contentApi: document.contentApi,
-      contentScm: document.contentScm,
-      halBrowser: document.halBrowser,
-      resCodes: document.resCodes,
-      coverImage: document.coverImage,
-    }),
-)(App);
-
