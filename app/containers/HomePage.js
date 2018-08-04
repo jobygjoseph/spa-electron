@@ -7,7 +7,7 @@ function mapStateToProps({ document, environments, types, brands }) {
   const { loading, loaded, error, splunk, url, headline, pal, contentGuid, contentId, publisher, total, totalUpdates, rawMessages, contentPublisher,
     date_created, date_published, date_updated, drupal, contentApi, contentScm, halBrowser, resCodes, coverImage } = document;
   console.log('---------------------- types: ', types);
-  consol.log('========================== brands', brands);
+  console.log('========================== brands', brands);
   return {
     loading,
     loaded,

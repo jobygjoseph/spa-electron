@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import '../css/App.css';
-
 
 import Form from './Form';
 import Header from './Header';
 
 import Row from './Row';
 import FatterRow from './FatterRow';
-
 
 export default class App extends Component {
   render() {
