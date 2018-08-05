@@ -1,7 +1,3 @@
-  /**
- * Created by ImranAnsari on 6/15/17.
- */
-
 import React, { Component } from 'react';
 
 export default class Row extends Component {

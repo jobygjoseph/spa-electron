@@ -29,6 +29,7 @@ export default class App extends Component {
           { linkText: 'View the Content Warehouse Standard Content Model representation as stored in our MongoDB', linkHref: contentScm, status: resCodes.scmCode },
 
     ];
+    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$ dispatch', typeof dispatch, dispatch);
     console.log('###############################', environments);
     console.log('###############################2', types);
     console.log('###############################3', brands);
