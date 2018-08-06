@@ -10,6 +10,7 @@ import FatterRow from './FatterRow';
 
 export default class Home extends Component {
   render() {
+    console.log('%%%%%%%%%%%%%%%%%%this.props in Home component render', this.props);
     const {
       splunk, url, headline, pal, error, contentGuid, contentId, contentPublisher, totalUpdates,
       rawMessages, date_created, date_published, date_updated, environments=[], types=[], brands=[],
