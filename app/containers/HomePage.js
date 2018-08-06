@@ -6,9 +6,8 @@ import * as allActions from '../actions';
 function mapStateToProps({ document, environments, types, brands }) {
   const { loading, loaded, error, splunk, url, headline, pal, contentGuid, contentId, publisher, total, totalUpdates, rawMessages, contentPublisher,
     date_created, date_published, date_updated, drupal, contentApi, contentScm, halBrowser, resCodes, coverImage } = document;
-  console.log('---------------------- types: ', types);
-  console.log('========================== brands', brands);
-  return {
+  
+    return {
     loading,
     loaded,
     error,

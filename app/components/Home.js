@@ -8,14 +8,13 @@ import Header from './Header';
 import Row from './Row';
 import FatterRow from './FatterRow';
 
-export default class App extends Component {
+export default class Home extends Component {
   render() {
-        // DO NOT GRAB DISPATCH
     const {
       splunk, url, headline, pal, error, contentGuid, contentId, contentPublisher, totalUpdates,
       rawMessages, date_created, date_published, date_updated, environments=[], types=[], brands=[],
       dispatch, isLoading, contentApi, contentScm, halBrowser, loaded, drupal, resCodes,
-      coverImage,
+      coverImage, fetching, fetchStatus, fetchFailed, fetchSuccessful,
     } = this.props;
     const dateRowBody = [
           { fieldKey: 'Date Created', fieldValue: date_created },
@@ -29,10 +28,7 @@ export default class App extends Component {
           { linkText: 'View the Content Warehouse Standard Content Model representation as stored in our MongoDB', linkHref: contentScm, status: resCodes.scmCode },
 
     ];
-    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$ dispatch', typeof dispatch, dispatch);
-    console.log('###############################', environments);
-    console.log('###############################2', types);
-    console.log('###############################3', brands);
+
     return (
       <div className="row">
         <Header />
@@ -41,7 +37,15 @@ export default class App extends Component {
             <div className="form-control-feedback">All fields listed below are required.</div>
           </div>
           <br />
-          <Form environments={environments} types={types} dispatch={dispatch} brands={brands} />
+          <Form
+            fetching={fetching}
+            fetchStatus={fetchStatus}
+            fetchFailed={fetchFailed}
+            fetchSuccessful={fetchSuccessful}
+            environments={environments}
+            types={types}
+            dispatch={dispatch}
+            brands={brands} />
           <br />
           <h3>{
               error

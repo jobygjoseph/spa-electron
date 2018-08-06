@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DOCUMENT_FETCH_LOADING, DOCUMENT_FETCH_SUCCESS, DOCUMENT_FETCH_ERROR } from '../reducers/document';
+import { fetchSuccessful, fetchFailed } from '../actions';
 
 
 //@connect(store => store)
@@ -22,7 +23,11 @@ export default class Form extends Component {
   submitForm(e) {
     e.preventDefault();
 
-    const { dispatch } = this.props;
+    const {
+      fetching,
+      fetchSuccessful,
+      fetchFailed,
+    } = this.props;
 
     const id = this.id.value;
     const type = this.type.options[this.type.selectedIndex].value;
@@ -31,9 +36,11 @@ export default class Form extends Component {
 
     const url = `${environment}/${brand}/${type}/${id}/stats`;
 
-    dispatch({
-      type: DOCUMENT_FETCH_LOADING,
-    });
+    // dispatch({
+    //   type: DOCUMENT_FETCH_LOADING,
+    // });
+
+    fetching();
 
     fetch(this.getProxyUrl(url), { mode: 'cors' })
         .then((response) => {
@@ -55,45 +62,65 @@ export default class Form extends Component {
                       { status: halCode }] = values;
                     values[1].json().then(((ap) => {
                       coverImage = ap._embedded['nbcng:coverImage'].url || ap._embedded['nbcng:image'].url || '';
-                      dispatch({
-                        type: DOCUMENT_FETCH_SUCCESS,
-                        payload: { ...payload,
-                          resCodes: { apiCode, scmCode, halCode, palCode },
-                          coverImage },
-                      });
+                      // dispatch({
+                      //   type: DOCUMENT_FETCH_SUCCESS,
+                      //   payload: { ...payload,
+                      //     resCodes: { apiCode, scmCode, halCode, palCode },
+                      //     coverImage },
+                      // });
+                      fetchSuccessful(
+                        { ...payload,
+                             resCodes: { apiCode, scmCode, halCode, palCode },
+                             coverImage }
+                      );
                     }))
                     .catch(() => {
                       // let's dispatch without an image.
-                      dispatch({
-                        type: DOCUMENT_FETCH_SUCCESS,
-                        payload: { ...payload,
+                      // dispatch({
+                      //   type: DOCUMENT_FETCH_SUCCESS,
+                      //   payload: { ...payload,
+                      //     resCodes: { apiCode, scmCode, halCode, palCode },
+                      //     coverImage },
+                      // });
+                      fetchSuccessful(
+                        { ...payload,
                           resCodes: { apiCode, scmCode, halCode, palCode },
-                          coverImage },
-                      });
+                          coverImage }
+                      );
                     });
                   })
                   .catch((err) => {
                     console.error(err);
-                    dispatch({
-                      type: DOCUMENT_FETCH_ERROR,
-                      payload: err.message,
-                    });
+                    // dispatch({
+                    //   type: DOCUMENT_FETCH_ERROR,
+                    //   payload: err.message,
+                    // });
+                    fetchFailed(err.message);
                   });
             });
           }
           throw new Error(`Network response was not ok, response code is : ${response.status}`);
         }).catch((error) => {
           console.error(error);
-          dispatch({
-            type: DOCUMENT_FETCH_ERROR,
-            payload: error.message,
-          });
+          // dispatch({
+          //   type: DOCUMENT_FETCH_ERROR,
+          //   payload: error.message,
+          // });
+          fetchFailed(error.message);
         });
   }
 
 
   render() {
-    const { environments, types, brands } = this.props;
+    const {
+      clearForm,
+      updateStatus,
+      addError,
+      fetchStatus,
+      environments,
+      types,
+      brands,
+    } = this.props;
 
     return (
       <form onSubmit={this.submitForm.bind(this)}>
